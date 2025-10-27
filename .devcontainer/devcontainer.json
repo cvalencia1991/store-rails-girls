@@ -1,0 +1,33 @@
+{
+	"name": "Rails 8.1 Template",
+	"image": "mcr.microsoft.com/devcontainers/ruby:3.3",
+	"hostRequirements": {
+		"cpus": 4,
+		"memory": "16gb"
+	},
+	"postCreateCommand": "bundle install && bin/rails db:prepare",
+	"waitFor": "postCreateCommand",
+	"postAttachCommand": {
+		"server": "rails server"
+	},
+	"customizations": {
+		// "codespaces": {
+		// 	"openFiles": [
+		// 		"app/views/hello/index.html.erb"
+		// 	]
+		// },
+		"vscode": {
+			"extensions": [
+				"Shopify.ruby-lsp",
+				"oderwat.indent-rainbow"
+			]
+		}
+	},
+	"portsAttributes": {
+		"3000": {
+			"label": "Application",
+			"onAutoForward": "openPreview"
+		}
+	},
+	"forwardPorts": [3000]
+}
