@@ -78,15 +78,15 @@ Rails.application.configure do
 
   # --- BEGIN Config to allow requests from Codespaces domains ---
   # TODO: Whe you run your proyect on environments different from Codespaces, you can remove these lines
-  pf_domain = ENV['GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN']
+  pf_domain = ENV["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]
   config.action_dispatch.default_headers = {
-    'X-Frame-Options' => "ALLOW-FROM #{pf_domain}"
+    "X-Frame-Options" => "ALLOW-FROM #{pf_domain}"
   }
 
   pf_host = "#{ENV['CODESPACE_NAME']}-3000.#{pf_domain}"
   config.hosts << pf_host
   config.hosts << /.*\.app\.github\.dev/
 
-  config.action_cable.allowed_request_origins = ["https://#{pf_host}", "http://localhost:3000"]
+  config.action_cable.allowed_request_origins = [ "https://#{pf_host}", "http://localhost:3000" ]
   # --- END Codespaces domains config ---
 end
