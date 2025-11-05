@@ -89,4 +89,6 @@ Rails.application.configure do
 
   config.action_cable.allowed_request_origins = [ "https://#{pf_host}", "http://localhost:3000" ]
   # --- END Codespaces domains config ---
+
+  config.action_controller.forgery_protection_origin_check = false
 end
