@@ -1,29 +1,31 @@
 {
-	"name": "Rails 8.1 Template",
-	"image": "ghcr.io/rails/devcontainer/images/ruby:3.4.7",
-	"hostRequirements": {
-		"cpus": 4,
-		"memory": "16gb"
-	},
-	"postCreateCommand": "bin/setup --skip-server",
-	"waitFor": "postCreateCommand",
-		"postAttachCommand": {
-		"server": "rails server"
-	},
-	"features": {
-		"ghcr.io/rails/devcontainer/features/activestorage": {},
-		"ghcr.io/rails/devcontainer/features/sqlite3": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": ["Shopify.ruby-lsp", "oderwat.indent-rainbow"]
-		}
-	},
-	"portsAttributes": {
-		"3000": {
-			"label": "Application",
-			"onAutoForward": "openPreview"
-		}
-	},
-	"forwardPorts": [3000]
+  "name": "Rails 8.1 Template",
+  "image": "ghcr.io/rails/devcontainer/images/ruby:3.4.7",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb"
+  },
+  "postCreateCommand": "bin/setup --skip-server",
+  "waitFor": "postCreateCommand",
+  "features": {
+    "ghcr.io/rails/devcontainer/features/activestorage": {},
+    "ghcr.io/rails/devcontainer/features/sqlite3": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["Shopify.ruby-lsp", "oderwat.indent-rainbow"],
+      "settings": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+      }
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [3000]
 }
