@@ -1,0 +1,35 @@
+<div class="container--lg">
+  <div class="mb-3">
+    <%= link_to "<- Back to Products", products_path, class: "link--secondary" %>
+  </div>
+
+  <div class="card">
+    <div class="grid-2">
+
+      <div>
+        <% if @product.featured_image.attached? %>
+          <%= image_tag @product.featured_image, class: "product-image" %>
+        <% else %>
+          <div class="product-image-placeholder">
+            📦
+          </div>
+        <% end %>
+      </div>
+
+      <div class="card-body">
+        <h1 class="text-title">
+          <%= @product.name %>
+        </h1>
+
+        <% if authenticated? %>
+          <div class="actions-column">
+            <div class="flex gap-2">
+              <%= link_to "✏️ Edit", edit_product_path(@product), class: "btn btn--outline-dark btn--block" %>
+              <%= button_to "🗑️ Delete", @product, method: :delete, class: "btn btn--negative btn--block", data: { turbo_confirm: "Are you sure?" } %>
+            </div>
+          <% end %>
+
+          </div>
+      </div>
+    </div>
+  </div>

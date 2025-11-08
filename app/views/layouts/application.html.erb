@@ -24,6 +24,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav id="nav">
+      <%= link_to root_path, class: "store-logo" do %>
+        🔴 Store
+      <% end %>
+
+
+      <div class="nav-group nav-group--end">
+        <%= link_to "Login", new_session_path, class: "nav-link" unless authenticated? %>
+        <%= button_to "Logout", session_path, method: :delete, class: "btn btn--link" if authenticated? %>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <div class="notice"><%= flash[:notice] %></div>
+      <div class="alert"><%= flash[:alert] %></div>
+      <%= yield %>
+    </main>
+
   </body>
 </html>

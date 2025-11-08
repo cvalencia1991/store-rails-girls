@@ -1,0 +1,23 @@
+<%= form_with model: @product do |form| %>
+
+  <% if form.object.errors.any? %>
+    <div class="alert mb-3">
+      <%= form.object.errors.full_messages.first %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Product name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :featured_image, "Product Image", class: "form-label" %>
+    <%= form.file_field :featured_image, accept: "image/*", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: "btn btn--primary btn--block" %>
+  </div>
+<% end %>
+

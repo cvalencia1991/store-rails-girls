@@ -1,0 +1,16 @@
+<div class="container--form">
+  <div class="mb-4">
+    <h1 class="text-subheading">Edit Product</h1>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <%= render "form", product: @product %>
+    </div>
+
+    <div class="card-footer flex-between">
+      <%= link_to "← Cancel", @product, class: "btn btn--sm" %>
+    </div>
+  </div>
+</div>
+

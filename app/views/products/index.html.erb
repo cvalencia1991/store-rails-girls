@@ -1,0 +1,17 @@
+<div>
+ <h1>Products</h1>
+ <%= link_to "+ New product", new_product_path, class: "btn btn--primary" if authenticated? %>
+</div>
+
+<div class="products-grid p-2">
+  <% @products.each do |product| %>
+    <div class="card">
+      <h3 class="card-title"><%= product.name %></h3>
+      <div class="flex gap-2 mt-3">
+        <%= link_to "View Details", 
+          product_path(product.id), class: "btn btn--primary" 
+        %>
+    </div>
+  <% end %>
+</div>
+
